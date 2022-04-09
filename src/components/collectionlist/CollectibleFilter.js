@@ -7,10 +7,10 @@ export default function CollectibleFilter(props) {
   const [inputValue, setInputValue] = useState("");
 
   const handleNameChange = (e) => {
-    setInputName(e.target.value);
+    setInputName(e.target.name);
   };
   const handlePriceChange = (e) => {
-    setInputPrice(e.target.value);
+    setInputPrice(e.target.price);
   };
   const handleValueChange = (e) => {
     setInputValue(e.target.value);
