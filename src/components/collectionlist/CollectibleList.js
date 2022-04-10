@@ -7,7 +7,7 @@ export default function CollectibleList() {
   const [elements, setElements] = useState([]);
 
   const addElement = (element) => {
-    if (!element.text || /^\s*$/.test(element.text)) {
+    if (!element.name || /^\s*$/.test(element.text)) {
       return;
     }
     const newElements = [element, ...elements];

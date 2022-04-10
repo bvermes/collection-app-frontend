@@ -2,15 +2,16 @@ import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 
 export default function CollectibleFilter(props) {
+  const [autoId, setAutoId] = useState(0);
   const [inputName, setInputName] = useState("");
-  const [inputPrice, setInputPrice] = useState("");
-  const [inputValue, setInputValue] = useState("");
+  const [inputValue, setInputValue] = useState(0);
+  const [inputPrice, setInputPrice] = useState(0);
 
   const handleNameChange = (e) => {
-    setInputName(e.target.name);
+    setInputName(e.target.value);
   };
   const handlePriceChange = (e) => {
-    setInputPrice(e.target.price);
+    setInputPrice(e.target.value);
   };
   const handleValueChange = (e) => {
     setInputValue(e.target.value);
@@ -18,17 +19,19 @@ export default function CollectibleFilter(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     props.onSubmit({
+      id: autoId,
       name: inputName,
       value: inputValue,
       price: inputPrice,
     });
 
+    setAutoId(autoId + 1);
     setInputName("");
     setInputPrice("");
     setInputValue("");
   };
+
   return (
     <div>
       <form className="collectible-form" onSubmit={handleSubmit}>
@@ -41,7 +44,7 @@ export default function CollectibleFilter(props) {
           onChange={handleNameChange}
         />
         <input
-          type="text"
+          type="number"
           placeholder="Purchase Price"
           value={inputPrice}
           name="price"
@@ -49,7 +52,7 @@ export default function CollectibleFilter(props) {
           onChange={handlePriceChange}
         />
         <input
-          type="text"
+          type="number"
           placeholder="Current Value"
           value={inputValue}
           name="value"
