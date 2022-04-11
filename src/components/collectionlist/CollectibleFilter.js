@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 
 export default function CollectibleFilter(props) {
@@ -6,6 +6,12 @@ export default function CollectibleFilter(props) {
   const [inputName, setInputName] = useState("");
   const [inputValue, setInputValue] = useState(0);
   const [inputPrice, setInputPrice] = useState(0);
+
+  const inputRef = useRef(null);
+
+  useEffect(() => {
+    inputRef.current.focus();
+  });
 
   const handleNameChange = (e) => {
     setInputName(e.target.value);
@@ -42,6 +48,7 @@ export default function CollectibleFilter(props) {
           name="name"
           className="collectible-inputName"
           onChange={handleNameChange}
+          ref={inputRef}
         />
         <input
           type="number"

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import CollectibleFilter from "./CollectibleFilter";
 import CollectibleItem from "./CollectibleItem";
+import { toBeInTheDocument } from "@testing-library/jest-dom/dist/matchers";
 
 export default function CollectibleList() {
   const [elements, setElements] = useState([]);
@@ -15,10 +16,40 @@ export default function CollectibleList() {
     setElements(newElements);
     console.log(...elements);
   };
+
+  const removeElement = (id) => {
+    const removeArr = [...elements].filter((element) => element.id != id);
+
+    setElements(removeArr);
+  };
+
+  const updateElement = (elementId, newValue) => {
+    if (!newValue.name || /^\s*$/.test(newValue.text)) {
+      return;
+    }
+    setElements((prev) =>
+      prev.map((item) => (item.id === elementId ? newValue : item))
+    );
+  };
+
+  const forSale = (id) => {
+    let updatedElements = elements.map((element) => {
+      if (element.id === id) {
+        element.forSale = !element.forSale;
+      }
+      return element;
+    });
+    setElements(updatedElements);
+  };
   return (
     <div>
       <CollectibleFilter onSubmit={addElement} />
-      <CollectibleItem />
+      <CollectibleItem
+        elements={elements}
+        forSale={forSale}
+        removeElement={removeElement}
+        updateElement={updateElement}
+      />
     </div>
   );
 }
