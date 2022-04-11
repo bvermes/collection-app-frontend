@@ -46,10 +46,8 @@ export default function CollectibleItem({
     >
       <div key={element.id} onClick={() => forSale(element.id)}>
         <div>{element.name}</div>
-
-<div
-        {element.price}
-        {element.value}
+        <div>{element.price}</div>
+        <div>{element.value}</div>
       </div>
 
       <div className="icons">
