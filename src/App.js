@@ -10,7 +10,7 @@ import { Nav } from "react-bootstrap";
 
 export default function App() {
   return (
-    <Router>
+    <Router className="collectible-app">
       <NavBar />
       <Routes>
         <Route path={"/"} element={<MyCollectionPage />} />
