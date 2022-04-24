@@ -44,7 +44,7 @@ export default function CollectibleItem({
     <div className="d-flex element-row" key={index}>
       <div className="col-3 p-2">HELLO</div>
       <div className="col-8 p-2">
-        <div className="row" key={element.id}>
+        <div className="row">
           <div className="col">name</div>
           <div className="col">price</div>
           <div className="col">value</div>
