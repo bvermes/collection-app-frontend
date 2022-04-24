@@ -41,36 +41,46 @@ export default function CollectibleFilter(props) {
   return (
     <div>
       <form className="collectible-form" onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Name of the collectible"
-          value={inputName}
-          name="name"
-          className="collectible-inputName"
-          onChange={handleNameChange}
-          ref={inputRef}
-        />
-        <input
-          type="number"
-          placeholder="Purchase Price"
-          value={inputPrice}
-          name="price"
-          className="collectible-inputPrice"
-          onChange={handlePriceChange}
-        />
-        <input
-          type="number"
-          placeholder="Current Value"
-          value={inputValue}
-          name="value"
-          className="collectible-inputValue"
-          onChange={handleValueChange}
-        />
-        <button className="collectible-button">Add Collectible</button>
+        <div className="d-flex justify-content-center">
+          <div className="p-2 m-2">
+            <div style={{ color: "white" }}>Name of the collectible</div>
+            <input
+              type="text"
+              placeholder="Name of the collectible"
+              value={inputName}
+              name="name"
+              className="collectible-inputName"
+              onChange={handleNameChange}
+              ref={inputRef}
+            />
+          </div>
+          <div className="p-2 m-2">
+            <div style={{ color: "white" }}>Purchase Price</div>
+            <input
+              type="number"
+              placeholder="Purchase Price"
+              value={inputPrice}
+              name="price"
+              className="collectible-inputPrice"
+              onChange={handlePriceChange}
+            />
+          </div>
+          <div className="p-2 m-2">
+            <div style={{ color: "white" }}>Current Value</div>
+            <input
+              type="number"
+              placeholder="Current Value"
+              value={inputValue}
+              name="value"
+              className="collectible-inputValue"
+              onChange={handleValueChange}
+            />
+          </div>
+          <button className="p-2 m-2 collectible-button">
+            Add Collectible
+          </button>
+        </div>
       </form>
-      <h1>
-        <div>CollectibleFilter</div>
-      </h1>
     </div>
   );
 }

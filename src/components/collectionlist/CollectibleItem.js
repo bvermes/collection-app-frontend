@@ -16,6 +16,7 @@ export default function CollectibleItem({
     name: "",
     value: "",
     price: "",
+    forSale: false,
   });
   const [name, setName] = useState({
     name: "",
@@ -40,32 +41,22 @@ export default function CollectibleItem({
     return <CollectibleFilter edit={edit} onSubmit={submitUpdate} />;
   }
   return elements.map((element, index) => (
-    <div
-      className={element.forSale ? "element-row forSale" : "element-row"}
-      key={index}
-    >
-      <div>
-        <div
-          className="row"
-          key={element.id}
-          onClick={() => forSale(element.id)}
-        >
+    <div className="d-flex element-row" key={index}>
+      <div className="col-3 p-2">HELLO</div>
+      <div className="col-8 p-2">
+        <div className="row" key={element.id}>
           <div className="col">name</div>
           <div className="col">price</div>
           <div className="col">value</div>
         </div>
-        <div
-          className="row"
-          key={element.id}
-          onClick={() => forSale(element.id)}
-        >
+        <div className="row" key={element.id}>
           <div className="col">{element.name}</div>
           <div className="col">{element.price}</div>
           <div className="col">{element.value}</div>
         </div>
       </div>
 
-      <div className="icons">
+      <div className="col-1 p-2 icons">
         <RiCloseCircleLine
           onClick={() => removeElement(element.id)}
           className="delete-icon"

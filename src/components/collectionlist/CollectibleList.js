@@ -32,21 +32,11 @@ export default function CollectibleList() {
     );
   };
 
-  const forSale = (id) => {
-    let updatedElements = elements.map((element) => {
-      if (element.id === id) {
-        element.forSale = !element.forSale;
-      }
-      return element;
-    });
-    setElements(updatedElements);
-  };
   return (
     <div>
       <CollectibleFilter onSubmit={addElement} />
       <CollectibleItem
         elements={elements}
-        forSale={forSale}
         removeElement={removeElement}
         updateElement={updateElement}
       />

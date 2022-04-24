@@ -16,7 +16,6 @@ export default function NavBar() {
     <Navbar bg="dark" variant="dark" expand="lg">
       <Navbar.Brand>
         <img src={logo} width="40px" height="40px" />
-        Logo
       </Navbar.Brand>
       <Navbar.Toggle />
       <Navbar.Collapse>
