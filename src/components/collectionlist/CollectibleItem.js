@@ -44,10 +44,25 @@ export default function CollectibleItem({
       className={element.forSale ? "element-row forSale" : "element-row"}
       key={index}
     >
-      <div key={element.id} onClick={() => forSale(element.id)}>
-        <div>{element.name}</div>
-        <div>{element.price}</div>
-        <div>{element.value}</div>
+      <div>
+        <div
+          className="row"
+          key={element.id}
+          onClick={() => forSale(element.id)}
+        >
+          <div className="col">name</div>
+          <div className="col">price</div>
+          <div className="col">value</div>
+        </div>
+        <div
+          className="row"
+          key={element.id}
+          onClick={() => forSale(element.id)}
+        >
+          <div className="col">{element.name}</div>
+          <div className="col">{element.price}</div>
+          <div className="col">{element.value}</div>
+        </div>
       </div>
 
       <div className="icons">
