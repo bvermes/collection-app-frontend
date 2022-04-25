@@ -101,6 +101,7 @@ h1 {
 
 .element-row {
   margin: 4px auto;
+  align-items: center;
   color: #fff;
   background: linear-gradient(
     90deg,
