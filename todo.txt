@@ -1,0 +1,15 @@
+Frontend todo:
+-titles(ablaknév)
+-logo készítés
+-filter
+-képfeltöltés,mentés, megjelenítés
+-for salenél extra tag megnyitása, ahol meg lehet adni az eladási árat
+-átkerüljön az összes elem a marketba
+-profile képfeltöltés
+
+SignalR:
+
+Backend:
+felhasználó autentikáció
+
+kérdések: Van-e vmi módja, hogy a felső margót nagyobbra állítsam a profilenál?
