@@ -30,6 +30,7 @@ export default function CollectibleFilter(props) {
       name: inputName,
       value: inputValue,
       price: inputPrice,
+      sellprice: 0,
       forSale: false,
     });
 

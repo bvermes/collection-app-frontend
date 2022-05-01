@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import CollectibleFilter from "./CollectibleFilter";
 import "bootstrap/dist/css/bootstrap.css";
 import { toBeInTheDocument } from "@testing-library/jest-dom/dist/matchers";
@@ -11,6 +11,7 @@ export default function CollectibleItem({
   removeElement,
   updateElement,
   handleCheckboxChange,
+  handleSellPriceChange,
 }) {
   //módosításra szánt értékek
   const [edit, setEdit] = useState({
@@ -32,7 +33,6 @@ export default function CollectibleItem({
       forSale: false,
     });
   };
-
   //ha az edit.id értéket vesz fel(csak akkor vehet fel, ha az editre nyomunk, akkor betölt a filter)
   if (edit.id) {
     return <CollectibleFilter edit={edit} onSubmit={submitUpdate} />;
@@ -63,6 +63,20 @@ export default function CollectibleItem({
             className="collectible-inputcheckbox"
             onChange={(e) => handleCheckboxChange(element.id, e.target.checked)}
           />
+          {element.forSale ? (
+            <div>
+              <div>Selling price</div>
+              <input
+                type="number"
+                placeholder="Selling price"
+                name="sellvalue"
+                className="collectible-inputName"
+                onChange={(e) =>
+                  handleSellPriceChange(element.id, e.target.value)
+                }
+              />
+            </div>
+          ) : null}
         </div>
       </div>
 

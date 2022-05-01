@@ -48,6 +48,23 @@ export default function CollectibleList() {
     );
   };
 
+  const handleSellPriceChange = (id, inputsellprice) => {
+    console.log(id);
+    console.log(inputsellprice);
+    setElements((prev) =>
+      prev.map((item) => {
+        if (item.id === id) {
+          const updatedItem = {
+            ...item,
+            sellprice: inputsellprice,
+          };
+          return updatedItem;
+        }
+        return item;
+      })
+    );
+  };
+
   return (
     <div>
       <CollectibleFilter edit={null} onSubmit={addElement} />
@@ -56,6 +73,7 @@ export default function CollectibleList() {
         removeElement={removeElement}
         updateElement={updateElement}
         handleCheckboxChange={handleCheckboxChange}
+        handleSellPriceChange={handleSellPriceChange}
       />
     </div>
   );

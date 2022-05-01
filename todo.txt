@@ -1,23 +1,22 @@
 Frontend todo:
--edit működjön, program átírása, h értsem(12ig)
+-edit működjön, program átírása, h értsem(12ig)+
 -képfeltöltés, mentés, megjelenítés(14ig)
 -profile képfeltöltés(15ig)
 -for salenél extra tag megnyitása, ahol meg lehet adni az eladási árat(17ig)
 
 -rest hívásokra reagálás->tudjunk postolni(20ig)
 -rest hívásokra reagálás->tudjunk getelni(21ig)
--rest hívásokra reagálás->tudjunk putolni(21ig)
+-rest hívásokra reagálás->tudjunk putolni(22ig)
 
--css profile, add bar, elemlista(22ig)
+-titles(ablaknév)(23ig)
+-logo készítés(24ig)
 
--ropi anyag összeszedés
+-css profile, add bar, elemlista(1ig)
+
+-ropi anyag összeszedés(2ig)
 ---------------------------------------------------------------------------
 
 -átkerüljön az összes elem a marketba
--titles(ablaknév)
--logo készítés
-
-
 -filter
 
 
