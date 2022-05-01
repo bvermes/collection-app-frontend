@@ -34,7 +34,7 @@ export default function CollectibleList() {
 
   return (
     <div>
-      <CollectibleFilter onSubmit={addElement} />
+      <CollectibleFilter edit={null} onSubmit={addElement} />
       <CollectibleItem
         elements={elements}
         removeElement={removeElement}

@@ -1,13 +1,25 @@
 Frontend todo:
+-edit működjön, program átírása, h értsem(12ig)
+-képfeltöltés, mentés, megjelenítés(14ig)
+-profile képfeltöltés(15ig)
+-for salenél extra tag megnyitása, ahol meg lehet adni az eladási árat(17ig)
+
+-rest hívásokra reagálás->tudjunk postolni(20ig)
+-rest hívásokra reagálás->tudjunk getelni(21ig)
+-rest hívásokra reagálás->tudjunk putolni(21ig)
+
+-css profile, add bar, elemlista(22ig)
+
+-ropi anyag összeszedés
+---------------------------------------------------------------------------
+
+-átkerüljön az összes elem a marketba
 -titles(ablaknév)
 -logo készítés
--filter
--képfeltöltés,mentés, megjelenítés
--for salenél extra tag megnyitása, ahol meg lehet adni az eladási árat
--átkerüljön az összes elem a marketba
--profile képfeltöltés
 
-SignalR:
+
+-filter
+
 
 Backend:
 felhasználó autentikáció

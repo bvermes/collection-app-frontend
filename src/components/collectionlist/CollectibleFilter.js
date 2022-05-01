@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 
 export default function CollectibleFilter(props) {
-  const [autoId, setAutoId] = useState(0);
+  const [autoId, setAutoId] = useState(1);
   const [inputName, setInputName] = useState("");
   const [inputValue, setInputValue] = useState(0);
   const [inputPrice, setInputPrice] = useState(0);
@@ -37,6 +37,12 @@ export default function CollectibleFilter(props) {
     setInputPrice("");
     setInputValue("");
   };
+
+  //if (props.edit != null) {
+  //  setInputName(props.edit.name);
+  //  setInputPrice(props.edit.price);
+  //  setInputValue(props.edit.value);
+  //}
 
   return (
     <div>

@@ -18,15 +18,6 @@ export default function CollectibleItem({
     price: "",
     forSale: false,
   });
-  const [name, setName] = useState({
-    name: "",
-  });
-  const [value, setValue] = useState({
-    value: 0,
-  });
-  const [price, setPrice] = useState({
-    price: 0,
-  });
 
   const submitUpdate = (value) => {
     updateElement(edit.id, value);
@@ -82,8 +73,8 @@ export default function CollectibleItem({
             setEdit({
               id: element.id,
               name: element.name,
-              value: element.value,
               price: element.price,
+              value: element.value,
             })
           }
           className="edit-icon"

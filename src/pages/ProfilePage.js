@@ -24,9 +24,9 @@ export default function ProfilePage() {
           </Stack>
         </div>
 
-        <div className="col ">
+        <div className="col">
           <Stack className="mt-5" gap={5}>
-            <div className="row mt-5 bg-light border">
+            <div className="row bg-light border">
               <div className="col">Full name:</div>
               <div className="col">Vermes Balázs</div>
             </div>
@@ -38,7 +38,7 @@ export default function ProfilePage() {
         </div>
         <div className="col">
           <Stack className="mt-5" gap={4}>
-            <div className="row mt-5 bg-light border">
+            <div className="row bg-light border">
               <div className="col">Collection type:</div>
               <div className="col">Cards</div>
             </div>
