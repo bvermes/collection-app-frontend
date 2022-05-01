@@ -10,7 +10,9 @@ export default function CollectibleItem({
   elements,
   removeElement,
   updateElement,
+  handleCheckboxChange,
 }) {
+  //módosításra szánt értékek
   const [edit, setEdit] = useState({
     id: null,
     name: "",
@@ -19,6 +21,7 @@ export default function CollectibleItem({
     forSale: false,
   });
 
+  //frissíti az elemet, átadja a filternek, ami a valueba visszaadja az inputokat, hogy meg lehessen hívni a list updateElement fv-ét
   const submitUpdate = (value) => {
     updateElement(edit.id, value);
     setEdit({
@@ -26,11 +29,11 @@ export default function CollectibleItem({
       name: "",
       value: "",
       price: "",
+      forSale: false,
     });
   };
 
-  const handleCheckboxChange = (e) => {};
-
+  //ha az edit.id értéket vesz fel(csak akkor vehet fel, ha az editre nyomunk, akkor betölt a filter)
   if (edit.id) {
     return <CollectibleFilter edit={edit} onSubmit={submitUpdate} />;
   }
@@ -58,7 +61,7 @@ export default function CollectibleItem({
             type="checkbox"
             name="name"
             className="collectible-inputcheckbox"
-            onChange={handleCheckboxChange}
+            onChange={(e) => handleCheckboxChange(element.id, e.target.checked)}
           />
         </div>
       </div>

@@ -8,7 +8,6 @@ export default function CollectibleFilter(props) {
   const [inputPrice, setInputPrice] = useState(0);
 
   const inputRef = useRef(null);
-
   useEffect(() => {
     inputRef.current.focus();
   });
@@ -23,6 +22,7 @@ export default function CollectibleFilter(props) {
     setInputValue(e.target.value);
   };
 
+  //itt adja hozzá a list-hez az elemet, majd nullázza az értékeket
   const handleSubmit = (e) => {
     e.preventDefault();
     props.onSubmit({
@@ -30,6 +30,7 @@ export default function CollectibleFilter(props) {
       name: inputName,
       value: inputValue,
       price: inputPrice,
+      forSale: false,
     });
 
     setAutoId(autoId + 1);
@@ -38,11 +39,14 @@ export default function CollectibleFilter(props) {
     setInputValue("");
   };
 
-  //if (props.edit != null) {
-  //  setInputName(props.edit.name);
-  //  setInputPrice(props.edit.price);
-  //  setInputValue(props.edit.value);
-  //}
+  //ha módosítunk az eredeti értékek betöltésre kerülnek
+  useEffect(() => {
+    if (props.edit != null) {
+      setInputName(props.edit.name);
+      setInputPrice(props.edit.price);
+      setInputValue(props.edit.value);
+    }
+  }, [setInputName, setInputPrice, setInputValue]);
 
   return (
     <div>
