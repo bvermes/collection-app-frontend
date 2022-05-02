@@ -1,11 +1,24 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import CollectibleFilter from "./CollectibleFilter";
 import CollectibleItem from "./CollectibleItem";
 import { toBeInTheDocument } from "@testing-library/jest-dom/dist/matchers";
+import axios from "axios";
+import { Endpoints, headers } from "../../config";
 
 export default function CollectibleList() {
   const [elements, setElements] = useState([]);
+
+  useEffect(() => {
+    console.log(Endpoints.collectionList);
+    axios
+      .get(Endpoints.collectionList, { headers })
+      .then(({ data }) => {
+        console.log(data);
+        setElements(data.elements);
+      })
+      .catch(console.log);
+  }, []);
 
   //filter segédfüggvénye, hogy hozzá tudjunk adni a listához
   const addElement = (element) => {

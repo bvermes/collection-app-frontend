@@ -37,7 +37,7 @@ export default function CollectibleItem({
   if (edit.id) {
     return <CollectibleFilter edit={edit} onSubmit={submitUpdate} />;
   }
-  return elements.map((element, index) => (
+  return elements?.map((element, index) => (
     <div className="d-flex element-row" key={index}>
       <Card className="bg-dark text-white">
         <Card.Img src="ronaldinho.jpg" height={200} alt="Card image" />
