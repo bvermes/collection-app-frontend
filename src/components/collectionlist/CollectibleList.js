@@ -14,8 +14,22 @@ export default function CollectibleList() {
     axios
       .get(Endpoints.collectionList, { headers })
       .then(({ data }) => {
-        console.log(data);
-        setElements(data.elements);
+        const loadData = () => JSON.parse(JSON.stringify(data));
+        setElements(loadData);
+        setElements((prev) =>
+          prev.map((item) => {
+            const updatedItem = {
+              id: item.id,
+              name: item.name,
+              value: item.value,
+              price: item.boughtFor,
+              sellprice: 0,
+              forSale: item.forSale,
+            };
+            return updatedItem;
+          })
+        );
+        console.log(elements);
       })
       .catch(console.log);
   }, []);

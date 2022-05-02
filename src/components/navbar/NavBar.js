@@ -20,9 +20,7 @@ export default function NavBar() {
       <Navbar.Toggle />
       <Navbar.Collapse>
         <Nav>
-          <Nav.Link href="mycollection" to>
-            My Collection
-          </Nav.Link>
+          <Nav.Link href="mycollection">My Collection</Nav.Link>
           <Nav.Link href="market">Market</Nav.Link>
           <Nav.Link href="profile">Profile</Nav.Link>
         </Nav>

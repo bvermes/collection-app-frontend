@@ -45,9 +45,9 @@ export default function CollectibleItem({
       <div className="row col-8 p-2">
         <div className="col-10 p-2">
           <div className="row">
-            <div className="col">name</div>
-            <div className="col">price</div>
-            <div className="col">value</div>
+            <div className="col">Name</div>
+            <div className="col">Purchase price</div>
+            <div className="col">Current value</div>
           </div>
           <div className="row" key={element.id}>
             <div className="col">{element.name}</div>

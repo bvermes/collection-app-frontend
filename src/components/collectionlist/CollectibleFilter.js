@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.css";
 
 export default function CollectibleFilter(props) {
   const [autoId, setAutoId] = useState(1);
+  const [inputFile, setInputFile] = useState(null);
   const [inputName, setInputName] = useState("");
   const [inputValue, setInputValue] = useState(0);
   const [inputPrice, setInputPrice] = useState(0);
@@ -11,6 +12,27 @@ export default function CollectibleFilter(props) {
   useEffect(() => {
     inputRef.current.focus();
   });
+  const handleFile = (e) => {
+    let file = e.target.file[0];
+    setInputFile(file);
+    console.log(inputFile);
+  };
+  //https://medium.com/web-dev-survey-from-kyoto/how-to-customize-the-file-upload-button-in-react-b3866a5973d8
+  // Create a reference to the hidden file input element
+  const hiddenFileInput = React.useRef(null);
+
+  // Programatically click the hidden file input element
+  // when the Button component is clicked
+  const handleClick = (event) => {
+    hiddenFileInput.current.click();
+  };
+  // Call a function (passed as a prop from the parent component)
+  // to handle the user-selected file
+  const handleChange = (event) => {
+    const fileUploaded = event.target.files[0];
+    console.log(fileUploaded);
+    //props.handleFile(fileUploaded);
+  };
 
   const handleNameChange = (e) => {
     setInputName(e.target.value);
@@ -53,6 +75,21 @@ export default function CollectibleFilter(props) {
     <div>
       <form className="collectible-form" onSubmit={handleSubmit}>
         <div className="d-flex justify-content-center">
+          <div className="p-2 m-2">
+            <div style={{ color: "white" }}>Picture of the collectible</div>
+            <button
+              className="p-2 m-2 collectible-button"
+              onClick={handleClick}
+            >
+              Upload a file
+            </button>
+            <input
+              type="file"
+              ref={hiddenFileInput}
+              onChange={handleChange}
+              style={{ display: "none" }}
+            />
+          </div>
           <div className="p-2 m-2">
             <div style={{ color: "white" }}>Name of the collectible</div>
             <input

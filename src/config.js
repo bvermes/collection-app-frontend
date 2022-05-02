@@ -4,7 +4,7 @@ let api = origin + "/api";
 export const Endpoints = {
   collectionList: api + "/Collection",
   marketList: api + "/Collection/for-sale",
-  collectionItemEdit: api + "Collection/" + id,
+  collectionItemEdit: (id) => api + "Collection/" + id,
   saveImage: api + "Collection/SaveFile",
 };
 

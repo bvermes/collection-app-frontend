@@ -5,6 +5,21 @@ import Stack from "react-bootstrap/Stack";
 import Button from "react-bootstrap/Button";
 
 export default function ProfilePage() {
+  //https://medium.com/web-dev-survey-from-kyoto/how-to-customize-the-file-upload-button-in-react-b3866a5973d8
+  // Create a reference to the hidden file input element
+  const hiddenFileInput = React.useRef(null);
+
+  // Programatically click the hidden file input element
+  // when the Button component is clicked
+  const handleClick = (event) => {
+    hiddenFileInput.current.click();
+  };
+  // Call a function (passed as a prop from the parent component)
+  // to handle the user-selected file
+  const handleChange = (event) => {
+    const fileUploaded = event.target.files[0];
+    console.log(fileUploaded);
+  };
   return (
     <div className="container">
       <div className="row">
@@ -14,9 +29,20 @@ export default function ProfilePage() {
               <Card.Img src="logo512.png" alt="Card image" />
             </Card>
             <div className="row">
-              <Button className="col m-2" variant="primary" size="lg">
+              <Button
+                className="col m-2"
+                variant="primary"
+                size="lg"
+                onClick={handleClick}
+              >
                 Upload image
               </Button>
+              <input
+                type="file"
+                ref={hiddenFileInput}
+                onChange={handleChange}
+                style={{ display: "none" }}
+              />
               <Button className="col m-2" variant="success" size="lg">
                 Save changes
               </Button>
