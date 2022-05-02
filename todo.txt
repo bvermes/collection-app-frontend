@@ -1,26 +1,23 @@
 Frontend todo:
--edit működjön, program átírása, h értsem(12ig)+
--képfeltöltés, mentés, megjelenítés(14ig)
--profile képfeltöltés(15ig)
--for salenél extra tag megnyitása, ahol meg lehet adni az eladási árat(17ig)
+-edit csak 1 elemnél jelenjen meg
+-checkbox default érték
+-képnézet helye az editben
 
--rest hívásokra reagálás->tudjunk postolni(20ig)
+-maradék backend endpointok
+-rest hívásokra reagálás->átkerüljön az összes elem a marketba
 -rest hívásokra reagálás->tudjunk getelni(21ig)
+-rest hívásokra reagálás->tudjunk postolni(20ig)
 -rest hívásokra reagálás->tudjunk putolni(22ig)
+-rest hívásokra reagálás->képfeltöltés, mentés, megjelenítés(14ig)
 
+-filter
+
+-profile képfeltöltés(15ig)
 -titles(ablaknév)(23ig)
 -logo készítés(24ig)
 
 -css profile, add bar, elemlista(1ig)
-
--ropi anyag összeszedés(2ig)
----------------------------------------------------------------------------
-
--átkerüljön az összes elem a marketba
--filter
-
+--------------------------------------------------------------------------
 
 Backend:
 felhasználó autentikáció
-
-kérdések: Van-e vmi módja, hogy a felső margót nagyobbra állítsam a profilenál?
