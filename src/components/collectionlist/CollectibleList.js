@@ -7,6 +7,7 @@ import axios from "axios";
 import { Endpoints, headers } from "../../config";
 import "bootstrap/dist/css/bootstrap.css";
 import CollectibleFilter from "./CollectibleFilter";
+import { ConsoleLogger } from "@microsoft/signalr/dist/esm/Utils";
 
 export default function CollectibleList() {
   const [elements, setElements] = useState([]);
@@ -113,45 +114,75 @@ export default function CollectibleList() {
   //CollectibleFilter-en filter gombra nyomva szűrni
   const handleFilterClick = (filter) => {
     setCurrentFilter(filter);
-    console.log(currentFilter);
+    console.log(filter);
     setListableElements(
-      [...elements].filter((it) =>
-        it.name?.toLowerCase().includes(filter.name.toLowerCase())
-      )
-      //.filter((it) => it.price > parseFloat(filter.minPrice))
-      //.filter((it) => it.price < parseFloat(filter.maxPrice))
-      //.filter((it) => it.value > parseFloat(filter.minValue))
-      //.filter((it) => it.value < parseFloat(filter.maxValue))
+      [...elements]
+        .filter((it) =>
+          it.name?.toLowerCase().includes(filter.name.toLowerCase())
+        )
+        .filter(
+          (it) =>
+            parseFloat(filter.minPrice) === 0 ||
+            it.price > parseFloat(filter.minPrice)
+        )
+        .filter(
+          (it) =>
+            parseFloat(filter.maxPrice) === 0 ||
+            it.price < parseFloat(filter.maxPrice)
+        )
+        .filter(
+          (it) =>
+            parseFloat(filter.minValue) === 0 ||
+            it.value > parseFloat(filter.minValue)
+        )
+        .filter(
+          (it) =>
+            parseFloat(filter.maxValue) === 0 ||
+            it.value < parseFloat(filter.maxValue)
+        )
     );
 
-    if (parseFloat(filter.minValue) !== 0) {
-      setListableElements(
-        [...listableElements].filter(
-          (it) => it.value > parseFloat(filter.minValue)
-        )
-      );
-    }
-    if (parseFloat(filter.maxValue) !== 0) {
-      setListableElements(
-        [...listableElements].filter(
-          (it) => it.value < parseFloat(filter.maxValue)
-        )
-      );
-    }
-    if (parseFloat(filter.minPrice) !== 0) {
-      setListableElements(
-        [...listableElements].filter(
-          (it) => it.price > parseFloat(filter.minPrice)
-        )
-      );
-    }
-    if (parseFloat(filter.maxPrice) !== 0) {
-      setListableElements(
-        [...listableElements].filter(
-          (it) => it.price < parseFloat(filter.maxPrice)
-        )
-      );
-    }
+    //if (parseFloat(filter.minValue) !== 0) {
+    //  setListableElements(
+    //    [...listableElements].filter(
+    //      (it) => it.value > parseFloat(filter.minValue)
+    //    )
+    //  );
+    //  console.log("min value:" + parseFloat(filter.minValue));
+    //  console.log(
+    //    [...listableElements].filter(
+    //      (it) => it.value > parseFloat(filter.minValue)
+    //    )
+    //  );
+    //}
+    //if (parseFloat(filter.maxValue) !== 0) {
+    //  setListableElements(
+    //    [...listableElements].filter(
+    //      (it) => it.value < parseFloat(filter.maxValue)
+    //    )
+    //  );
+    //
+    //  console.log("max value:" + parseFloat(filter.maxValue));
+    //  console.log(
+    //    [...listableElements].filter(
+    //      (it) => it.value > parseFloat(filter.minValue)
+    //    )
+    //  );
+    //}
+    //if (parseFloat(filter.minPrice) !== 0) {
+    //  setListableElements(
+    //    [...listableElements].filter(
+    //      (it) => it.price > parseFloat(filter.minPrice)
+    //    )
+    //  );
+    //}
+    //if (parseFloat(filter.maxPrice) !== 0) {
+    //  setListableElements(
+    //    [...listableElements].filter(
+    //      (it) => it.price < parseFloat(filter.maxPrice)
+    //    )
+    //  );
+    //}
   };
 
   const handleEditClicked = (e) => {

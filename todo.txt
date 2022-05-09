@@ -22,12 +22,15 @@ forSale: list to market gomb hozzáadás, addig nem változtatjuk a listát
 -titles(ablaknév)(21ig)
 -logo készítés(21ig)
 
--css profile, add bar, elemlista(1ig)
-
-
 https://www.youtube.com/watch?v=evcEcHnqQ-I&list=PLRtJAB9-XUtui79rVfYIIfrWpxFXNDJYu&index=24&ab_channel=ZsomborParoczi
 https://www.youtube.com/watch?v=0TTa5Ulmgds&ab_channel=ArjunYonjan%2FCodeTravel
 --------------------------------------------------------------------------
 
 Backend:
 felhasználó autentikáció
+
+
+image upload, market, filter fix
+toastok
+
+
