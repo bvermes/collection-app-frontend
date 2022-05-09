@@ -12,6 +12,7 @@ export default function CollectibleList() {
   const [elements, setElements] = useState([]);
   const [listableElements, setListableElements] = useState([]);
   const [currentFilter, setCurrentFilter] = useState();
+  const [edit, setEdit] = useState();
 
   //backendes adatbetöltés
   useEffect(() => {
@@ -54,12 +55,14 @@ export default function CollectibleList() {
 
     setElements(newElements);
     console.log(...elements);
+    handleFilterClick(currentFilter);
   };
   //CollectibleItem segédfüggvénye, hogy töröljünk az iconkattintáskor a listából
   const removeElement = (id) => {
     const removeArr = [...elements].filter((element) => element.id != id);
 
     setElements(removeArr);
+    handleFilterClick(currentFilter);
   };
   //CollectibleItem segédfüggvénye, hogy módosítani tudjunk az iconkattintáskor a listából
   const updateElement = (elementId, newValue) => {
@@ -69,6 +72,7 @@ export default function CollectibleList() {
     setElements((prev) =>
       prev.map((item) => (item.id === elementId ? newValue : item))
     );
+    handleFilterClick(currentFilter);
   };
   ////CollectibleItem segédfüggvénye, hogy checkboxmódosításkor változzon a listában szereplő elem forSale értéke
   const handleCheckboxChange = (id, checked) => {
@@ -108,8 +112,8 @@ export default function CollectibleList() {
 
   //CollectibleFilter-en filter gombra nyomva szűrni
   const handleFilterClick = (filter) => {
-    console.log(filter.minValue);
     setCurrentFilter(filter);
+    console.log(currentFilter);
     setListableElements(
       [...elements].filter((it) =>
         it.name?.toLowerCase().includes(filter.name.toLowerCase())
@@ -150,25 +154,55 @@ export default function CollectibleList() {
     }
   };
 
-  return (
-    <div>
+  const handleEditClicked = (e) => {
+    setEdit(e);
+    console.log(edit);
+  };
+  if (edit) {
+    return (
       <div>
-        <CollectibleFilter onFilterClick={handleFilterClick} />
-      </div>
-      <div className="row">
-        <div className="col-3">
-          <CollectibleAdder edit={null} onSubmit={addElement} />
+        <div>
+          <CollectibleFilter onFilterClick={handleFilterClick} />
         </div>
-        <div className="col-9">
-          <CollectibleItem
-            elements={listableElements}
-            removeElement={removeElement}
-            updateElement={updateElement}
-            handleCheckboxChange={handleCheckboxChange}
-            handleSellPriceChange={handleSellPriceChange}
-          />
+        <div className="row">
+          <center className="col-3 center">
+            <CollectibleAdder edit={edit} onSubmit={updateElement} />
+          </center>
+          <div className="col-9">
+            <CollectibleItem
+              elements={listableElements}
+              removeElement={removeElement}
+              updateElement={updateElement}
+              handleCheckboxChange={handleCheckboxChange}
+              handleSellPriceChange={handleSellPriceChange}
+              handleEditClicked={handleEditClicked}
+            />
+          </div>
         </div>
       </div>
-    </div>
-  );
+    );
+  } else {
+    return (
+      <div>
+        <div>
+          <CollectibleFilter onFilterClick={handleFilterClick} />
+        </div>
+        <div className="row">
+          <center className="col-3 center">
+            <CollectibleAdder edit={null} onSubmit={addElement} />
+          </center>
+          <div className="col-9">
+            <CollectibleItem
+              elements={listableElements}
+              removeElement={removeElement}
+              updateElement={updateElement}
+              handleCheckboxChange={handleCheckboxChange}
+              handleSellPriceChange={handleSellPriceChange}
+              handleEditClicked={handleEditClicked}
+            />
+          </div>
+        </div>
+      </div>
+    );
+  }
 }

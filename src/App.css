@@ -12,6 +12,7 @@ body {
     #202020,
     #202020 100%
   );
+  overflow: hidden
 }
 .collectible-app {
   display: flex;
@@ -38,6 +39,7 @@ h1 {
 
 .collectible-form {
   margin-bottom: 32px;
+  background: #303030;
 }
 
 .collectible-input {
@@ -58,10 +60,6 @@ h1 {
   width: 320px;
   background: transparent;
   color: #fff;
-}
-
-.collectible-input::placeholder {
-  
 }
 
 .collectible-button {
@@ -107,7 +105,7 @@ h1 {
     #202020 100%
   );
   box-shadow: 0px 3px 50px #000000;
-  padding: 16px;
+  padding: 8px;
   border-radius: 1px;
   width: 90%;
   color: #fff;
@@ -157,10 +155,15 @@ h1 {
 }
 
 .center {
+  margin-left: auto;
+  margin-right: auto;
   text-align: center;
-  border: 3px solid green;
 }
 
 .textbox{
   color: #404040;
+}
+
+.collectible-adder{
+  color: #fff;
 }

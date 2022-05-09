@@ -12,6 +12,7 @@ export default function CollectibleItem({
   updateElement,
   handleCheckboxChange,
   handleSellPriceChange,
+  handleEditClicked,
 }) {
   //módosításra szánt értékek
   const [edit, setEdit] = useState({
@@ -35,7 +36,10 @@ export default function CollectibleItem({
   };
   //ha az edit.id értéket vesz fel(csak akkor vehet fel, ha az editre nyomunk, akkor betölt a filter)
   if (edit.id) {
-    return <CollectibleAdder edit={edit} onSubmit={submitUpdate} />;
+    {
+      /*return <CollectibleAdder edit={edit} onSubmit={submitUpdate} />;*/
+    }
+    handleEditClicked(edit);
   }
   return (
     <div style={{ height: "600px", overflowY: "auto" }}>

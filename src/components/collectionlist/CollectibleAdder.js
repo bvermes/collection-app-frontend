@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import Card from "react-bootstrap/Card";
 import "bootstrap/dist/css/bootstrap.css";
 
 export default function CollectibleAdder(props) {
@@ -72,11 +73,13 @@ export default function CollectibleAdder(props) {
   }, [setInputName, setInputPrice, setInputValue]);
 
   return (
-    <div>
-      <form className="collectible-form" onSubmit={handleSubmit}>
-        <div className="d-flex justify-content-center">
+    <div className="collectible-adder">
+      <form className="collectible-form " onSubmit={handleSubmit}>
+        <div>
           <div className="p-2 m-2">
-            <div>Picture of the collectible</div>
+            <Card className="bg-dark text-white">
+              <Card.Img src="ronaldinho.jpg" alt="Card image" height="10% " />
+            </Card>
             <button
               className="p-2 m-2 collectible-button"
               onClick={handleClick}
@@ -90,7 +93,7 @@ export default function CollectibleAdder(props) {
               style={{ display: "none" }}
             />
           </div>
-          <div className="p-2 m-2">
+          <div className="m-2">
             <div>Name of the collectible</div>
             <input
               type="text"
@@ -102,7 +105,7 @@ export default function CollectibleAdder(props) {
               ref={inputRef}
             />
           </div>
-          <div className="p-2 m-2">
+          <div className="m-2">
             <div>Purchase Price</div>
             <input
               type="number"
@@ -113,7 +116,7 @@ export default function CollectibleAdder(props) {
               onChange={handlePriceChange}
             />
           </div>
-          <div className="p-2 m-2">
+          <div className="m-2">
             <div>Current Value</div>
             <input
               type="number"
