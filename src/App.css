@@ -9,8 +9,8 @@
 body {
   background: linear-gradient(
     90deg,
-    rgba(0, 218, 0, 0.8),
-    rgba(0, 173, 0, 0.76) 100%
+    #202020,
+    #202020 100%
   );
 }
 .collectible-app {
@@ -61,7 +61,7 @@ h1 {
 }
 
 .collectible-input::placeholder {
-  color: #e2e2e2;
+  
 }
 
 .collectible-button {
@@ -103,38 +103,42 @@ h1 {
   align-items: center;
   background: linear-gradient(
     90deg,
-    rgba(255, 205, 0, 1) 0%,
-    rgba(210, 188, 16, 1) 100%
+    #202020 0%,
+    #202020 100%
   );
-
+  box-shadow: 0px 3px 50px #000000;
   padding: 16px;
-  border-radius: 5px;
+  border-radius: 1px;
   width: 90%;
+  color: #fff;
+  
+  border: solid;
+  border-width: thin;
+  border-color: #00FFFF;
 }
 
 
+.element-row:nth-child(2n + 1) {
+  background: linear-gradient(
+    90deg,
+    #202020 0%,
+    #202020 100%
+  );
+  box-shadow: 0px 3px 50px #000000;
+}
 .filter-row {
   margin: 4px auto;
   align-items: center;
   background: linear-gradient(
     90deg,
-    rgba(255, 205, 0, 1) 0%,
-    rgba(210, 188, 16, 1) 100%
+    #404040 0%,
+    #404040 100%
   );
 
   padding: 5px;
   border-radius: 5px;
   width: 80%;
 }
-
-.element-row:nth-child(2n + 1) {
-  background: linear-gradient(
-    90deg,
-    rgba(0, 151, 255, 1),
-    rgba(93, 0, 255, 1)100%
-  );
-}
-
 
 .icons {
   display: flex;
@@ -145,14 +149,18 @@ h1 {
 
 .delete-icon {
   margin-right: 5px;
-  color: #fff;
+  color: #99FF33;
 }
 
 .edit-icon {
-  color: #fff;
+  color: #99FF33;
 }
 
 .center {
   text-align: center;
   border: 3px solid green;
+}
+
+.textbox{
+  color: #404040;
 }

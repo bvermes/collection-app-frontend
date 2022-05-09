@@ -109,7 +109,7 @@ export default function CollectibleList() {
   //CollectibleFilter-en filter gombra nyomva szűrni
   const handleFilterClick = (filter) => {
     console.log(filter.minValue);
-    //setCurrentFilter(filt);
+    setCurrentFilter(filter);
     setListableElements(
       [...elements].filter((it) =>
         it.name?.toLowerCase().includes(filter.name.toLowerCase())
@@ -120,28 +120,28 @@ export default function CollectibleList() {
       //.filter((it) => it.value < parseFloat(filter.maxValue))
     );
 
-    if (parseFloat(filter.minValue) != 0) {
+    if (parseFloat(filter.minValue) !== 0) {
       setListableElements(
         [...listableElements].filter(
           (it) => it.value > parseFloat(filter.minValue)
         )
       );
     }
-    if (parseFloat(filter.maxValue) != 0) {
+    if (parseFloat(filter.maxValue) !== 0) {
       setListableElements(
         [...listableElements].filter(
           (it) => it.value < parseFloat(filter.maxValue)
         )
       );
     }
-    if (parseFloat(filter.minValue) != 0) {
+    if (parseFloat(filter.minPrice) !== 0) {
       setListableElements(
         [...listableElements].filter(
           (it) => it.price > parseFloat(filter.minPrice)
         )
       );
     }
-    if (parseFloat(filter.minValue) != 0) {
+    if (parseFloat(filter.maxPrice) !== 0) {
       setListableElements(
         [...listableElements].filter(
           (it) => it.price < parseFloat(filter.maxPrice)

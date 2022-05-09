@@ -16,20 +16,21 @@ export default function CollectibleFilter(props) {
       minPrice: minPrice,
       maxPrice: maxPrice,
     });
-    console.log(minValue);
+    console.log(minPrice);
   };
 
   return (
     <div
       className="row m-2 mx-auto align-items-center justify-content-between filter-row"
-      style={{ background: "#4d4bff" }}
+      style={{ background: "#303030" }}
     >
       <div className="col m-3">
         <input
           type="text"
           placeholder="Enter Collectible's name"
-          className="form-control"
+          className="form-control textbox"
           value={name}
+          style={{ background: "#505050" }}
           onChange={(e) => setName(e.target.value)}
         />
       </div>
@@ -40,6 +41,7 @@ export default function CollectibleFilter(props) {
             type="number"
             placeholder="Collectible's minimum value"
             className="form-control"
+            style={{ background: "#505050" }}
             onChange={(e) => setMinValue(e.target.value)}
           />
 
@@ -47,6 +49,7 @@ export default function CollectibleFilter(props) {
             type="number"
             placeholder="Collectible's maximum value"
             className="form-control"
+            style={{ background: "#505050" }}
             onChange={(e) => setMaxValue(e.target.value)}
           />
         </div>
@@ -57,12 +60,14 @@ export default function CollectibleFilter(props) {
           type="number"
           placeholder="Collectible's minimum price"
           className="form-control"
+          style={{ background: "#505050" }}
           onChange={(e) => setMinPrice(e.target.value)}
         />
         <input
           type="number"
           placeholder="Collectible's maximum price"
           className="form-control"
+          style={{ background: "#505050" }}
           onChange={(e) => setMaxPrice(e.target.value)}
         />
       </div>
@@ -71,6 +76,7 @@ export default function CollectibleFilter(props) {
         <button
           className="btn btn-primary btn-block center"
           onClick={handleFilterClick}
+          style={{ background: "#99FF33", color: "black" }}
         >
           Filter
         </button>

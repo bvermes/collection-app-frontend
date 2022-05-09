@@ -76,7 +76,7 @@ export default function CollectibleAdder(props) {
       <form className="collectible-form" onSubmit={handleSubmit}>
         <div className="d-flex justify-content-center">
           <div className="p-2 m-2">
-            <div style={{ color: "white" }}>Picture of the collectible</div>
+            <div>Picture of the collectible</div>
             <button
               className="p-2 m-2 collectible-button"
               onClick={handleClick}
@@ -91,7 +91,7 @@ export default function CollectibleAdder(props) {
             />
           </div>
           <div className="p-2 m-2">
-            <div style={{ color: "white" }}>Name of the collectible</div>
+            <div>Name of the collectible</div>
             <input
               type="text"
               placeholder="Name of the collectible"
@@ -103,7 +103,7 @@ export default function CollectibleAdder(props) {
             />
           </div>
           <div className="p-2 m-2">
-            <div style={{ color: "white" }}>Purchase Price</div>
+            <div>Purchase Price</div>
             <input
               type="number"
               placeholder="Purchase Price"
@@ -114,7 +114,7 @@ export default function CollectibleAdder(props) {
             />
           </div>
           <div className="p-2 m-2">
-            <div style={{ color: "white" }}>Current Value</div>
+            <div>Current Value</div>
             <input
               type="number"
               placeholder="Current Value"

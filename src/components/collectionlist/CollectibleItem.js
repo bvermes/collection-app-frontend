@@ -75,6 +75,7 @@ export default function CollectibleItem({
                     type="number"
                     placeholder="Selling price"
                     name="sellvalue"
+                    style={{ background: "#505050" }}
                     className="collectible-inputName"
                     onChange={(e) =>
                       handleSellPriceChange(element.id, e.target.value)
