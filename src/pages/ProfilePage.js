@@ -5,6 +5,7 @@ import Stack from "react-bootstrap/Stack";
 import Button from "react-bootstrap/Button";
 
 export default function ProfilePage() {
+  //Feltöltőgomb szép legyen
   //https://medium.com/web-dev-survey-from-kyoto/how-to-customize-the-file-upload-button-in-react-b3866a5973d8
   // Create a reference to the hidden file input element
   const hiddenFileInput = React.useRef(null);

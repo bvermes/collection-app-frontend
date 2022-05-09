@@ -9,8 +9,8 @@
 body {
   background: linear-gradient(
     90deg,
-    rgba(48, 16, 255, 1) 0%,
-    rgba(100, 115, 255, 1) 100%
+    rgba(0, 218, 0, 0.8),
+    rgba(0, 173, 0, 0.76) 100%
   );
 }
 .collectible-app {
@@ -28,7 +28,6 @@ body {
 
 h1 {
   margin: 32px 0;
-  color: #fff;
   font-size: 24px;
 }
 
@@ -102,11 +101,10 @@ h1 {
 .element-row {
   margin: 4px auto;
   align-items: center;
-  color: #fff;
   background: linear-gradient(
     90deg,
-    rgba(255, 118, 20, 1) 0%,
-    rgba(255, 84, 17, 1) 100%
+    rgba(255, 205, 0, 1) 0%,
+    rgba(210, 188, 16, 1) 100%
   );
 
   padding: 16px;
@@ -114,29 +112,29 @@ h1 {
   width: 90%;
 }
 
-.element-row:nth-child(4n + 1) {
+
+.filter-row {
+  margin: 4px auto;
+  align-items: center;
   background: linear-gradient(
     90deg,
-    rgba(93, 12, 255, 1) 0%,
-    rgba(155, 0, 250, 1) 100%
+    rgba(255, 205, 0, 1) 0%,
+    rgba(210, 188, 16, 1) 100%
+  );
+
+  padding: 5px;
+  border-radius: 5px;
+  width: 80%;
+}
+
+.element-row:nth-child(2n + 1) {
+  background: linear-gradient(
+    90deg,
+    rgba(0, 151, 255, 1),
+    rgba(93, 0, 255, 1)100%
   );
 }
 
-.element-row:nth-child(4n + 2) {
-  background: linear-gradient(
-    90deg,
-    rgba(255, 12, 241, 1) 0%,
-    rgba(250, 0, 135, 1) 100%
-  );
-}
-
-.element-row:nth-child(4n + 3) {
-  background: linear-gradient(
-    90deg,
-    rgba(20, 159, 255, 1) 0%,
-    rgba(17, 122, 255, 1) 100%
-  );
-}
 
 .icons {
   display: flex;
@@ -152,4 +150,9 @@ h1 {
 
 .edit-icon {
   color: #fff;
+}
+
+.center {
+  text-align: center;
+  border: 3px solid green;
 }

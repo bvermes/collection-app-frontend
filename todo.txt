@@ -1,22 +1,32 @@
 Frontend todo:
--edit csak 1 elemnél jelenjen meg
--checkbox default érték
--képnézet helye az editben
+
+item todo: listarendezés
+
+filter todo: baloldalra rendezés
+
+add element todo: bal oldalra rendezés
+forSale: list to market gomb hozzáadás, addig nem változtatjuk a listát
+-edit csak 1 elemnél jelenjen meg(23ig)
+-képnézet helye az editben(15ig)
 
 -maradék backend endpointok
--rest hívásokra reagálás->átkerüljön az összes elem a marketba
--rest hívásokra reagálás->tudjunk getelni(21ig)
--rest hívásokra reagálás->tudjunk postolni(20ig)
--rest hívásokra reagálás->tudjunk putolni(22ig)
--rest hívásokra reagálás->képfeltöltés, mentés, megjelenítés(14ig)
+-rest hívásokra reagálás->átkerüljön az összes elem a marketba(16ig)
+-rest hívásokra reagálás->tudjunk getelni(17ig)
+-rest hívásokra reagálás->tudjunk postolni(18ig)
+-rest hívásokra reagálás->tudjunk putolni(19ig)
+-rest hívásokra reagálás->képfeltöltés, mentés, megjelenítés(20ig)
 
 -filter
 
--profile képfeltöltés(15ig)
--titles(ablaknév)(23ig)
--logo készítés(24ig)
+-profile képfeltöltés(21ig)
+-titles(ablaknév)(21ig)
+-logo készítés(21ig)
 
 -css profile, add bar, elemlista(1ig)
+
+
+https://www.youtube.com/watch?v=evcEcHnqQ-I&list=PLRtJAB9-XUtui79rVfYIIfrWpxFXNDJYu&index=24&ab_channel=ZsomborParoczi
+https://www.youtube.com/watch?v=0TTa5Ulmgds&ab_channel=ArjunYonjan%2FCodeTravel
 --------------------------------------------------------------------------
 
 Backend:
