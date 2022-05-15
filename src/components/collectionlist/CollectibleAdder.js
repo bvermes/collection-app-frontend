@@ -4,20 +4,16 @@ import "bootstrap/dist/css/bootstrap.css";
 
 export default function CollectibleAdder(props) {
   const [autoId, setAutoId] = useState(1);
-  const [inputFile, setInputFile] = useState(null);
   const [inputName, setInputName] = useState("");
-  const [inputValue, setInputValue] = useState(0);
-  const [inputPrice, setInputPrice] = useState(0);
-
+  const [inputValue, setInputValue] = useState("");
+  const [inputPrice, setInputPrice] = useState("");
+  const [imageSrc, setImageSrc] = useState("img/default.png");
+  const [imageFile, setImageFile] = useState(null);
   const inputRef = useRef(null);
   useEffect(() => {
     inputRef.current.focus();
   });
-  const handleFile = (e) => {
-    let file = e.target.file[0];
-    setInputFile(file);
-    console.log(inputFile);
-  };
+
   //https://medium.com/web-dev-survey-from-kyoto/how-to-customize-the-file-upload-button-in-react-b3866a5973d8
   // Create a reference to the hidden file input element
   const hiddenFileInput = React.useRef(null);
@@ -27,11 +23,17 @@ export default function CollectibleAdder(props) {
   const handleClick = (event) => {
     hiddenFileInput.current.click();
   };
-  // Call a function (passed as a prop from the parent component)
-  // to handle the user-selected file
-  const handleChange = (event) => {
-    const fileUploaded = event.target.files[0];
-    console.log(fileUploaded);
+  //https://www.youtube.com/watch?v=ORVShW0Yjaw&list=WL&index=44&ab_channel=CodAffection
+  const handleFileChange = (event) => {
+    if (event.target.files && event.target.files[0]) {
+      let fileUploaded = event.target.files[0];
+      const reader = new FileReader();
+      reader.onload = (x) => {
+        setImageFile(fileUploaded);
+        setImageSrc(x.target.result);
+      };
+      reader.readAsDataURL(fileUploaded);
+    }
     //props.handleFile(fileUploaded);
   };
 
@@ -45,22 +47,36 @@ export default function CollectibleAdder(props) {
     setInputValue(e.target.value);
   };
 
+  const validate = () => {
+    if (inputName === null || imageSrc === "img/default.png") {
+      return false;
+    } else return true;
+  };
+
   //itt adja hozzá a list-hez az elemet, majd nullázza az értékeket
   const handleSubmit = (e) => {
     e.preventDefault();
-    props.onSubmit({
-      id: autoId,
-      name: inputName,
-      value: inputValue,
-      price: inputPrice,
-      sellprice: 0,
-      forSale: false,
-    });
+    if (validate) {
+      props.onSubmit({
+        id: autoId,
+        name: inputName,
+        value: inputValue,
+        price: inputPrice,
+        sellprice: 0,
+        forSale: false,
+        imageName: imageSrc,
+        imageFile: imageFile,
+      });
 
-    setAutoId(autoId + 1);
-    setInputName("");
-    setInputPrice("");
-    setInputValue("");
+      setAutoId(autoId + 1);
+      setInputName("");
+      setInputPrice("");
+      setInputValue("");
+      setImageSrc("img/default.png");
+      setImageFile(null);
+    } else {
+      console.log("missing info");
+    }
   };
 
   //ha módosítunk az eredeti értékek betöltésre kerülnek
@@ -74,11 +90,11 @@ export default function CollectibleAdder(props) {
 
   return (
     <div className="collectible-adder">
-      <form className="collectible-form " onSubmit={handleSubmit}>
+      <form className="collectible-form" onSubmit={handleSubmit}>
         <div>
           <div className="p-2 m-2">
             <Card className="bg-dark text-white">
-              <Card.Img src="ronaldinho.jpg" alt="Card image" height="10% " />
+              <Card.Img src={imageSrc} alt="Card image" />
             </Card>
             <button
               className="p-2 m-2 collectible-button"
@@ -89,7 +105,7 @@ export default function CollectibleAdder(props) {
             <input
               type="file"
               ref={hiddenFileInput}
-              onChange={handleChange}
+              onChange={handleFileChange}
               style={{ display: "none" }}
             />
           </div>

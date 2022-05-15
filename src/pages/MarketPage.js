@@ -1,10 +1,11 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.css";
+import MarketList from "../components/marketList/MarketList";
 
 export default function MarketPage() {
   return (
-    <h1>
-      <center>MarketPage</center>
-    </h1>
+    <div>
+      <MarketList />
+    </div>
   );
 }

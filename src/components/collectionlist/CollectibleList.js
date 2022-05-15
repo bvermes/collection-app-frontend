@@ -2,12 +2,10 @@ import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import CollectibleAdder from "./CollectibleAdder";
 import CollectibleItem from "./CollectibleItem";
-import { toBeInTheDocument } from "@testing-library/jest-dom/dist/matchers";
 import axios from "axios";
 import { Endpoints, headers } from "../../config";
 import "bootstrap/dist/css/bootstrap.css";
 import CollectibleFilter from "./CollectibleFilter";
-import { ConsoleLogger } from "@microsoft/signalr/dist/esm/Utils";
 
 export default function CollectibleList() {
   const [elements, setElements] = useState([]);
@@ -17,6 +15,10 @@ export default function CollectibleList() {
 
   //backendes adatbetöltés
   useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = () => {
     console.log(Endpoints.collectionList);
     axios
       .get(Endpoints.collectionList, { headers })
@@ -32,16 +34,18 @@ export default function CollectibleList() {
               price: item.boughtFor,
               sellprice: 0,
               forSale: item.forSale,
+              imageName: item.imageName,
+              imageFile: item.imageFile,
             };
             return updatedItem;
           })
         );
         console.log(elements);
-        //setListableElements(elements);
-        //console.log(listableElements)
+        setListableElements([...elements]);
+        console.log(listableElements);
       })
       .catch(console.log);
-  }, []);
+  };
 
   //useEffect(async () => {
   //  updateListables();
@@ -52,12 +56,16 @@ export default function CollectibleList() {
     if (!element.name || /^\s*$/.test(element.text)) {
       return;
     }
+    axios.post(Endpoints.collectionList, element).then((res) => {
+      console.log("Sikerült");
+    });
     const newElements = [element, ...elements];
-
     setElements(newElements);
-    console.log(...elements);
+    console.log(element);
+    console.log(elements);
     handleFilterClick(currentFilter);
   };
+
   //CollectibleItem segédfüggvénye, hogy töröljünk az iconkattintáskor a listából
   const removeElement = (id) => {
     const removeArr = [...elements].filter((element) => element.id != id);
@@ -65,6 +73,7 @@ export default function CollectibleList() {
     setElements(removeArr);
     handleFilterClick(currentFilter);
   };
+
   //CollectibleItem segédfüggvénye, hogy módosítani tudjunk az iconkattintáskor a listából
   const updateElement = (elementId, newValue) => {
     if (!newValue.name || /^\s*$/.test(newValue.text)) {
@@ -75,6 +84,7 @@ export default function CollectibleList() {
     );
     handleFilterClick(currentFilter);
   };
+
   ////CollectibleItem segédfüggvénye, hogy checkboxmódosításkor változzon a listában szereplő elem forSale értéke
   const handleCheckboxChange = (id, checked) => {
     setElements((prev) =>

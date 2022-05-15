@@ -167,3 +167,9 @@ h1 {
 .collectible-adder{
   color: #fff;
 }
+
+.card-img-top {
+  width: 100%;
+  height: 15vw;
+  object-fit: cover;
+}
