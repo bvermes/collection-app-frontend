@@ -12,7 +12,12 @@ export default function CollectibleAdder(props) {
   const inputRef = useRef(null);
   useEffect(() => {
     inputRef.current.focus();
-  });
+    if (props.edit != null) {
+      setInputName(props.edit.name);
+      setInputPrice(props.edit.price);
+      setInputValue(props.edit.value);
+    }
+  }, []);
 
   //https://medium.com/web-dev-survey-from-kyoto/how-to-customize-the-file-upload-button-in-react-b3866a5973d8
   // Create a reference to the hidden file input element
@@ -66,6 +71,7 @@ export default function CollectibleAdder(props) {
         forSale: false,
         imageName: imageSrc,
         imageFile: imageFile,
+        //imageSrc: imageSrc,
       });
 
       setAutoId(autoId + 1);
@@ -80,13 +86,13 @@ export default function CollectibleAdder(props) {
   };
 
   //ha módosítunk az eredeti értékek betöltésre kerülnek
-  useEffect(() => {
-    if (props.edit != null) {
-      setInputName(props.edit.name);
-      setInputPrice(props.edit.price);
-      setInputValue(props.edit.value);
-    }
-  }, [setInputName, setInputPrice, setInputValue]);
+  //useEffect(() => {
+  //  if (props.edit != null) {
+  //    setInputName(props.edit.name);
+  //    setInputPrice(props.edit.price);
+  //    setInputValue(props.edit.value);
+  //  }
+  //}, [setInputName, setInputPrice, setInputValue]);
 
   return (
     <div className="collectible-adder">

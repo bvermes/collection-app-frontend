@@ -37,6 +37,7 @@ export default function CollectibleList() {
               imageName: item.imageName,
               imageFile: item.imageFile,
             };
+            console.log(item);
             return updatedItem;
           })
         );
@@ -56,7 +57,17 @@ export default function CollectibleList() {
     if (!element.name || /^\s*$/.test(element.text)) {
       return;
     }
-    axios.post(Endpoints.collectionList, element).then((res) => {
+    const formData = new FormData();
+    formData.append("id", element.id);
+    formData.append("name", element.name);
+    formData.append("boughtFor", element.boughtFor);
+    formData.append("value", element.value);
+    formData.append("forSale", element.forSale);
+    formData.append("imageName", element.imageName);
+    formData.append("imageFile", element.imageFile);
+    //formData.append("imageSrc", element.imageSrc);
+    console.log(formData);
+    axios.post(Endpoints.collectionList, formData).then((res) => {
       console.log("Sikerült");
     });
     const newElements = [element, ...elements];
