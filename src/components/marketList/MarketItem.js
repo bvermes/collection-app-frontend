@@ -32,7 +32,11 @@ export default function MarketItem({ elements, updateElement }) {
       {elements?.map((element, index) => (
         <div className="d-flex element-row" key={index}>
           <Card className="bg-dark text-white">
-            <Card.Img src="ronaldinho.jpg" height={150} alt="Card image" />
+            <Card.Img
+              src={"https://localhost:7028/Images/" + element.imageName}
+              height={150}
+              alt="Card image"
+            />
           </Card>
           <div className="row col-8 p-2">
             <div className="col-10 p-2">

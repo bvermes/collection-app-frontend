@@ -61,7 +61,7 @@ export default function CollectibleItem({
               </div>
               <div className="row" key={element.id}>
                 <div className="col">{element.name}</div>
-                <div className="col">{element.price}</div>
+                <div className="col">{element.boughtFor}</div>
                 <div className="col">{element.value}</div>
               </div>
             </div>

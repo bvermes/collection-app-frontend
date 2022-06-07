@@ -5,8 +5,8 @@ import "bootstrap/dist/css/bootstrap.css";
 export default function CollectibleAdder(props) {
   const [autoId, setAutoId] = useState(1);
   const [inputName, setInputName] = useState("");
-  const [inputValue, setInputValue] = useState("");
   const [inputPrice, setInputPrice] = useState("");
+  const [inputValue, setInputValue] = useState("");
   const [imageSrc, setImageSrc] = useState("img/default.png");
   const [imageFile, setImageFile] = useState(null);
   const inputRef = useRef(null);
@@ -14,8 +14,9 @@ export default function CollectibleAdder(props) {
     inputRef.current.focus();
     if (props.edit != null) {
       setInputName(props.edit.name);
-      setInputPrice(props.edit.price);
+      setInputPrice(props.edit.boughtFor);
       setInputValue(props.edit.value);
+      setImageSrc("https://localhost:7028/Images/" + props.edit.imageName);
     }
   }, []);
 
@@ -66,9 +67,10 @@ export default function CollectibleAdder(props) {
         id: autoId,
         name: inputName,
         value: inputValue,
-        price: inputPrice,
-        sellprice: 0,
+        boughtFor: inputPrice,
+        sellingPrice: 0,
         forSale: false,
+        sold: false,
         imageName: imageSrc,
         imageFile: imageFile,
         //imageSrc: imageSrc,
