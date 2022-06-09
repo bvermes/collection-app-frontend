@@ -1,13 +1,16 @@
 Frontend todo:
 
-item todo: listarendezés
+Trade oldal: nev, vasarlasi ar->hozzadas, eladasi ar megadas->egyenlegek frissites
+Navbarba: +nav linkek, coin egyenleg, profit egyenleg
 
-filter todo: baloldalra rendezés
+Collection oldalt atalakitani:
+Uj navbar, amiben a collection,market es history van(history sima lista, amibol vissza lehet vonni(sold modositas+egyenlegek)
+ addert megcsinalni
 
-add element todo: bal oldalra rendezés
-forSale: list to market gomb hozzáadás, addig nem változtatjuk a listát
--edit csak 1 elemnél jelenjen meg(23ig)
--képnézet helye az editben(15ig)
+
+Market oldalt atalakitani: 
+-sold gomb hozzaadasa, ami frissiti a coint,profitot, atallitja a sold attr truera
+-download gomb, amivel letoltodik a szűrt lista elemei excelbe es képekkel
 
 -maradék backend endpointok
 -rest hívásokra reagálás->átkerüljön az összes elem a marketba(16ig)
@@ -16,21 +19,20 @@ forSale: list to market gomb hozzáadás, addig nem változtatjuk a listát
 -rest hívásokra reagálás->tudjunk putolni(19ig)
 -rest hívásokra reagálás->képfeltöltés, mentés, megjelenítés(20ig)
 
--filter
 
--profile képfeltöltés(21ig)
+
+
+kinézet:
 -titles(ablaknév)(21ig)
 -logo készítés(21ig)
+toastok
+
 
 https://www.youtube.com/watch?v=evcEcHnqQ-I&list=PLRtJAB9-XUtui79rVfYIIfrWpxFXNDJYu&index=24&ab_channel=ZsomborParoczi
 https://www.youtube.com/watch?v=0TTa5Ulmgds&ab_channel=ArjunYonjan%2FCodeTravel
 --------------------------------------------------------------------------
 
-Backend:
-felhasználó autentikáció
 
-
-image upload, market, filter fix
-toastok
-
+Sure bet oldal
+Draw oldal
 

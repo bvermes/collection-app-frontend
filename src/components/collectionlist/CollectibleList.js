@@ -6,6 +6,7 @@ import axios from "axios";
 import { Endpoints, headers } from "../../config";
 import "bootstrap/dist/css/bootstrap.css";
 import CollectibleFilter from "./CollectibleFilter";
+import { editableInputTypes } from "@testing-library/user-event/dist/utils";
 
 export default function CollectibleList() {
   const [elements, setElements] = useState([]);
@@ -16,6 +17,7 @@ export default function CollectibleList() {
   //backendes adatbetöltés
   useEffect(() => {
     fetchData();
+    setEdit(null);
   }, []);
 
   const fetchData = () => {
@@ -174,51 +176,53 @@ export default function CollectibleList() {
     setEdit(e);
     console.log(edit);
   };
-  if (edit) {
-    return (
-      <div key="1">
-        <div>
-          <CollectibleFilter onFilterClick={handleFilterClick} />
-        </div>
-        <div className="row">
-          <center className="col-3 center">
-            <CollectibleAdder edit={edit} onSubmit={updateElement} />
-          </center>
-          <div className="col-9">
-            <CollectibleItem
-              elements={listableElements}
-              removeElement={removeElement}
-              updateElement={updateElement}
-              handleCheckboxChange={handleCheckboxChange}
-              handleSellPriceChange={handleSellPriceChange}
-              handleEditClicked={handleEditClicked}
-            />
+  useEffect(() => {
+    if (edit) {
+      return (
+        <div key="1">
+          <div>
+            <CollectibleFilter onFilterClick={handleFilterClick} />
+          </div>
+          <div className="row">
+            <center className="col-3 center">
+              <CollectibleAdder edit={edit} onSubmit={updateElement} />
+            </center>
+            <div className="col-9">
+              <CollectibleItem
+                elements={listableElements}
+                removeElement={removeElement}
+                updateElement={updateElement}
+                handleCheckboxChange={handleCheckboxChange}
+                handleSellPriceChange={handleSellPriceChange}
+                handleEditClicked={handleEditClicked}
+              />
+            </div>
           </div>
         </div>
-      </div>
-    );
-  } else {
-    return (
-      <div key="2">
-        <div>
-          <CollectibleFilter onFilterClick={handleFilterClick} />
-        </div>
-        <div className="row">
-          <center className="col-3 center">
-            <CollectibleAdder edit={null} onSubmit={addElement} />
-          </center>
-          <div className="col-9">
-            <CollectibleItem
-              elements={listableElements}
-              removeElement={removeElement}
-              updateElement={updateElement}
-              handleCheckboxChange={handleCheckboxChange}
-              handleSellPriceChange={handleSellPriceChange}
-              handleEditClicked={handleEditClicked}
-            />
+      );
+    } else {
+      return (
+        <div key="2">
+          <div>
+            <CollectibleFilter onFilterClick={handleFilterClick} />
+          </div>
+          <div className="row">
+            <center className="col-3 center">
+              <CollectibleAdder edit={null} onSubmit={addElement} />
+            </center>
+            <div className="col-9">
+              <CollectibleItem
+                elements={listableElements}
+                removeElement={removeElement}
+                updateElement={updateElement}
+                handleCheckboxChange={handleCheckboxChange}
+                handleSellPriceChange={handleSellPriceChange}
+                handleEditClicked={handleEditClicked}
+              />
+            </div>
           </div>
         </div>
-      </div>
-    );
-  }
+      );
+    }
+  }, [edit]);
 }

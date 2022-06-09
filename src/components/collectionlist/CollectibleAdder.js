@@ -17,6 +17,7 @@ export default function CollectibleAdder(props) {
       setInputPrice(props.edit.boughtFor);
       setInputValue(props.edit.value);
       setImageSrc("https://localhost:7028/Images/" + props.edit.imageName);
+      setImageFile(props.edit.imageFile);
     }
   }, []);
 
@@ -54,7 +55,8 @@ export default function CollectibleAdder(props) {
   };
 
   const validate = () => {
-    if (inputName === null || imageSrc === "img/default.png") {
+    if (inputName === "") {
+      console.log(inputName);
       return false;
     } else return true;
   };
@@ -62,7 +64,8 @@ export default function CollectibleAdder(props) {
   //itt adja hozzá a list-hez az elemet, majd nullázza az értékeket
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (validate) {
+    if (validate() === true) {
+      console.log("admitted");
       props.onSubmit({
         id: autoId,
         name: inputName,
@@ -84,6 +87,7 @@ export default function CollectibleAdder(props) {
       setImageFile(null);
     } else {
       console.log("missing info");
+      console.log(inputName);
     }
   };
 
