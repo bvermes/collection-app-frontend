@@ -5,13 +5,6 @@ import { Nav, Navbar } from "react-bootstrap";
 import logo from "../../logo.svg";
 
 export default function NavBar() {
-  const elements = [
-    ["/stream", "Stream"],
-    ["/matched-templates", "Matched templates"],
-    ["/template-editor", "Template editor"],
-    ["/kit-editor", "Kit editor"],
-    ["/station-editor", "Station editor"],
-  ];
   return (
     <Navbar bg="dark" variant="dark" expand="lg">
       <Navbar.Brand>
@@ -22,6 +15,7 @@ export default function NavBar() {
         <Nav>
           <Nav.Link href="mycollection">My Collection</Nav.Link>
           <Nav.Link href="market">Market</Nav.Link>
+          <Nav.Link href="predict">Predict</Nav.Link>
           <Nav.Link href="profile">Profile</Nav.Link>
         </Nav>
       </Navbar.Collapse>
