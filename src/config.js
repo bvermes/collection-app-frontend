@@ -6,6 +6,10 @@ export const Endpoints = {
   marketList: api + "/Collection/for-sale",
   collectionItemEdit: (id) => api + "Collection/" + id,
   saveImage: api + "Collection/SaveFile",
+
+
+  teamsList: api+ "/Teams"
+  
 };
 
 export const headers = {
