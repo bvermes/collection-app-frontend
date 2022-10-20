@@ -30,13 +30,17 @@ export default function TeamItem({ elements, handleDetailsClicked }) {
     <div style={{ height: "600px", overflowY: "auto" }}>
       {elements?.map((element, index) => (
         <div className="d-flex element-row" key={index}>
-          <Card className="bg-dark text-white">
-            <Card.Img
-              src={"/img/TeamImages/" + element.teamname.toLowerCase() + ".png"}
-              height={150}
-              alt="Card image"
-            />
-          </Card>
+          <div style={{ width: "150px" }}>
+            <Card className="bg-dark text-white">
+              <Card.Img
+                src={
+                  "/img/TeamImages/" + element.teamname.toLowerCase() + ".png"
+                }
+                height={150}
+                alt="Card image"
+              />
+            </Card>
+          </div>
           <div className="row col-8 p-2">
             <div className="col-10 p-2">
               <div className="row">

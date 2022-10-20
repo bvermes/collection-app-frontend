@@ -1,6 +1,9 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import "./Modal.css";
+import TeamDetails from "../predictionList/teamList/TeamDetails";
+import Card from "react-bootstrap/Card";
+
 export default function Modal(props) {
   return (
     <div className="modalBackground">
@@ -9,9 +12,29 @@ export default function Modal(props) {
           <h1>Team Details</h1>
         </div>
         <div className="modalBody">
-          <div>Team Name: {props.team.teamname}</div>
-          <div>Team Overall: {props.team.overall}</div>
-          <div>Matches Played: {props.team.matches_played}</div>
+          <TeamDetails team={props.team} />
+          <Card className="bg-dark text-white">
+            <Card.Img
+              src={
+                "/img/TeamImages/" +
+                props.team.teamname.toLowerCase() +
+                "aftmatchcorr.png"
+              }
+              height={500}
+              alt="Card image"
+            />
+          </Card>
+          <Card className="bg-dark text-white">
+            <Card.Img
+              src={
+                "/img/TeamImages/" +
+                props.team.teamname.toLowerCase() +
+                "prematchcorr.png"
+              }
+              height={500}
+              alt="Card image"
+            />
+          </Card>
         </div>
         <div className="modalFooter">
           <button

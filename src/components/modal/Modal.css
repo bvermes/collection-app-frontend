@@ -1,8 +1,39 @@
 .modalBackground {
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(200, 200, 200);
   position: fixed;
+  width: 100%;
+  background-color: rgba(206, 5, 5, 0);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+.modalContainer {
+  width: 1200px;
+  height: 700px;
+  border-radius: 12px;
+  background-color: rgba(161, 161, 161, 0.945);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+}
+.modalContainer .modalTitle {
+  display: inline-block;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.modalContainer .modalBody {
+  flex: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.7rem;
+  text-align: center;
+}
+
+.modalContainer .modalFooter {
+  flex: 10%;
   display: flex;
   justify-content: center;
   align-items: center;
