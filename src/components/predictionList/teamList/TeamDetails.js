@@ -2,6 +2,9 @@ import React, { useState, useEffect, useRef } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 
 export default function TeamDetails(props) {
+  if (props.team === undefined) {
+    return <>Loading</>;
+  }
   return (
     <div style={{ height: "300px", overflowY: "auto" }}>
       <div>Team Name: {props.team.teamname}</div>

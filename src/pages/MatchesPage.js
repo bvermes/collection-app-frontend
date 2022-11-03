@@ -1,28 +1,60 @@
 import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import "./MatchesPage.css";
-import Dropdown from "../components/Dropdown";
+import CustomDropdown from "../components/CustomDropdown";
+import Card from "react-bootstrap/Card";
+import TeamDetails from "../components/predictionList/teamList/TeamDetails";
 
 export default function MatchesPage(props) {
   const [elements, setElements] = useState([]);
+  const [homeTeam, setHomeTeam] = useState();
+  const [awayTeam, setAwayTeam] = useState();
+
+  const [homeImgSrc, setHomeImgSrc] = useState("/img/default.png");
+  const [awayImgSrc, setAwayImgSrc] = useState("/img/default.png");
 
   useEffect(() => {
     setElements(props.elements);
   }, [props.elements]);
 
-  console.log(elements);
+  const hometeamChanges = () => {
+    setHomeImgSrc(
+      "/img/TeamImages/" + homeTeam.teamname.toLowerCase() + ".png"
+    );
+  };
+
+  const handleDropdownRefresh = (e, k) => {
+    if (k === 1) {
+      setHomeTeam(e);
+      hometeamChanges();
+    }
+    if (k === 2) {
+      setAwayTeam(e);
+    }
+  };
 
   if (elements.length == 0) {
-    return <div>Loading...</div>;
     console.log("loading");
+    return <div>Loading...</div>;
   } else {
     return (
       <div className="parentdiv">
         <div className="row">
           <center className="col-sm">
-            <Dropdown elements={elements} />
-            <div>logók</div>
-            <div>team details</div>
+            <CustomDropdown
+              elements={elements}
+              handleDropdownRefresh={handleDropdownRefresh}
+              k={1}
+            />
+            <div style={{ width: "50%" }}>
+              <Card
+                className="bg-dark text-white m-3"
+                style={{ height: "100px" }}
+              >
+                <Card.Img src={homeImgSrc} alt="Card image" />
+              </Card>
+            </div>
+            <TeamDetails team={homeTeam} />
           </center>
           <center className="col-sm">
             <center>Sport Betting office odds</center>
@@ -65,9 +97,21 @@ export default function MatchesPage(props) {
             </center>
           </center>
           <center className="col-sm">
-            <Dropdown>dropdown</Dropdown>
-            <div>logók</div>
-            <div>team details</div>
+            <CustomDropdown
+              elements={elements}
+              handleDropdownRefresh={handleDropdownRefresh}
+              k={2}
+            />
+            <div style={{ width: "50%" }}>
+              <Card
+                className="bg-dark text-white m-3"
+                style={{ height: "100px" }}
+              >
+                <Card.Img src={awayImgSrc} alt="Card image" />
+              </Card>
+            </div>
+
+            <TeamDetails team={awayTeam} />
           </center>
         </div>
         <div></div>
