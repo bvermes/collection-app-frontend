@@ -1,4 +1,17 @@
 .parentdiv {
-  color: rgb(133, 248, 133);
-  font-size: 20px;
+  background-color: rgb(rgb(255, 255, 255));
+  height: 600px;
+  color: rgb(184, 184, 184);
+  font-size: 14px;
+}
+
+.card-img {
+  max-width: "100px";
+  max-height: "50px";
+  width: "auto";
+  height: "auto";
+}
+#middiv > * {
+  margin: 30px 0;
+  font-size: 16px;
 }

@@ -13,20 +13,41 @@ export default function MatchesPage(props) {
   const [homeImgSrc, setHomeImgSrc] = useState("/img/default.png");
   const [awayImgSrc, setAwayImgSrc] = useState("/img/default.png");
 
+  const [homebetodds, setHomebetodds] = useState("");
+  const [drawbetodds, setDrawbetodds] = useState("");
+  const [awaybetodds, setAwaybetodds] = useState("");
+  const [homeaiodds, setHomeaiodds] = useState("3");
+  const [drawaiodds, setDrawaiodds] = useState("3");
+  const [awayaiodds, setAwayaiodds] = useState("3");
+  const [suggestion, setSuggestion] = useState("Click on Evaluate");
+
   useEffect(() => {
     setElements(props.elements);
   }, [props.elements]);
 
-  const hometeamChanges = () => {
-    setHomeImgSrc(
-      "/img/TeamImages/" + homeTeam.teamname.toLowerCase() + ".png"
-    );
-  };
+  //const hometeamChanges = () => {
+  //
+  //};
+  useEffect(() => {
+    if (homeTeam !== undefined) {
+      setHomeImgSrc(
+        "/img/TeamImages/" + homeTeam.teamname.toLowerCase() + ".png"
+      );
+    }
+  }, [homeTeam]);
+
+  useEffect(() => {
+    if (awayTeam !== undefined) {
+      setAwayImgSrc(
+        "/img/TeamImages/" + awayTeam.teamname.toLowerCase() + ".png"
+      );
+    }
+  }, [awayTeam]);
 
   const handleDropdownRefresh = (e, k) => {
     if (k === 1) {
       setHomeTeam(e);
-      hometeamChanges();
+      //hometeamChanges();
     }
     if (k === 2) {
       setAwayTeam(e);
@@ -47,16 +68,18 @@ export default function MatchesPage(props) {
               k={1}
             />
             <div style={{ width: "50%" }}>
-              <Card
-                className="bg-dark text-white m-3"
-                style={{ height: "100px" }}
-              >
-                <Card.Img src={homeImgSrc} alt="Card image" />
+              <Card className="bg-dark text-white m-3">
+                <Card.Img
+                  height={150}
+                  width={"auto"}
+                  src={homeImgSrc}
+                  alt="Card image"
+                />
               </Card>
             </div>
             <TeamDetails team={homeTeam} />
           </center>
-          <center className="col-sm">
+          <center className="col-sm" id="middiv">
             <center>Sport Betting office odds</center>
             <center className="row">
               <center className="col-sm">
@@ -95,6 +118,24 @@ export default function MatchesPage(props) {
                 Evaluate
               </button>
             </center>
+            <div className="row">
+              <div className="col-sm">
+                <center>Home AI odds</center>
+                <center>{homeaiodds}</center>
+              </div>
+              <div className="col-sm">
+                <center>Draw AI odds</center>
+                <center>{drawaiodds}</center>
+              </div>
+              <div className="col-sm">
+                <center>Away AI odds</center>
+                <center>{awayaiodds}</center>
+              </div>
+            </div>
+            <div>
+              <center>Suggestion</center>
+              <center>{suggestion}</center>
+            </div>
           </center>
           <center className="col-sm">
             <CustomDropdown
@@ -103,35 +144,17 @@ export default function MatchesPage(props) {
               k={2}
             />
             <div style={{ width: "50%" }}>
-              <Card
-                className="bg-dark text-white m-3"
-                style={{ height: "100px" }}
-              >
-                <Card.Img src={awayImgSrc} alt="Card image" />
+              <Card className="bg-dark text-white m-3">
+                <Card.Img
+                  height={150}
+                  width={"auto"}
+                  src={awayImgSrc}
+                  alt="Card image"
+                />
               </Card>
             </div>
-
             <TeamDetails team={awayTeam} />
           </center>
-        </div>
-        <div></div>
-        <div className="row">
-          <div className="col-sm">
-            <center>Home Team AI odds</center>
-            <center>3.0</center>
-          </div>
-          <div className="col-sm">
-            <center>Draw AI odds</center>
-            <center>3.0</center>
-          </div>
-          <div className="col-sm">
-            <center>Away AI odds</center>
-            <center>3.0</center>
-          </div>
-        </div>
-        <div>
-          <center>Suggestion</center>
-          <center>Bet on home team</center>
         </div>
       </div>
     );
