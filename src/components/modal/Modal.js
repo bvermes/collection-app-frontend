@@ -8,9 +8,9 @@ export default function Modal(props) {
   return (
     <div className="modalBackground">
       <div className="modalContainer">
-        <div className="modalTitle">
+        <center className="modalTitle">
           <h1>Team Details</h1>
-        </div>
+        </center>
         <div className="modalBody">
           <TeamDetails team={props.team} />
           <Card className="bg-dark text-white">

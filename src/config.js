@@ -8,8 +8,8 @@ export const Endpoints = {
   saveImage: api + "Collection/SaveFile",
 
 
-  teamsList: api+ "/Teams"
-  
+  teamsList: api+ "/Teams",
+  modelresults: api+ "/Teams/modelresults"
 };
 
 export const headers = {

@@ -19,13 +19,6 @@ export default function TeamItem({ elements, handleDetailsClicked }) {
       name: "",
     });
   };
-  //ha az edit.id értéket vesz fel(csak akkor vehet fel, ha az editre nyomunk, akkor betölt a filter)
-  if (edit.id) {
-    {
-      /*return <CollectibleAdder edit={edit} onSubmit={submitUpdate} />;*/
-    }
-    //TODO : handleEditClicked(edit);
-  }
   return (
     <div style={{ height: "600px", overflowY: "auto" }}>
       {elements?.map((element, index) => (
@@ -63,7 +56,7 @@ export default function TeamItem({ elements, handleDetailsClicked }) {
             />
             <TiChartBarOutline
               onClick={() => handleDetailsClicked(element)}
-              className="edit-icon"
+              className="chart-icon"
             />
           </div>
         </div>

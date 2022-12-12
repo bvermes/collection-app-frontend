@@ -12,13 +12,13 @@ export default function CustomDropdown(props) {
 
   return (
     <Dropdown>
-      <Dropdown.Toggle variant="success" id="dropdown-basic">
+      <Dropdown.Toggle style={{ background: "#99FF33"}} id="dropdown-basic">
         {displayName}
       </Dropdown.Toggle>
 
-      <Dropdown.Menu className="dropdown-menu">
+      <Dropdown.Menu style={{background:"rgba(255,255,255,0.7)", color:"white"}}className="dropdown-menu">
         {props.elements?.map((element, index) => (
-          <Dropdown.Item key={index} onClick={() => handleClick(element)}>
+          <Dropdown.Item style={{color:"black"}} key={index} onClick={() => handleClick(element)}>
             {element.teamname}
           </Dropdown.Item>
         ))}
