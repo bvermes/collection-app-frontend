@@ -1,3 +1,9 @@
+# Project Overview
+This was a school project I did at the first semester of my master studies. The goal of this project was to learn ASP .NET Core and deepen my React skills.
+I choose an app, that could be useful for my every day life. One of my hobbies to collect sport trading cards(mainly soccer/football), but I couldn't keep track of them. So I decided to develop a web application, where I can store information about them(picture, title, buying price, current value, etc.)
+
+In the future I want to further develop this system, so that it can keep track of all my valuable belongings(crypto, stocks, other collection item, cash, etc.)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
